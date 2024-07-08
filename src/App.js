@@ -3,38 +3,23 @@ import { catImages } from "./images";
 import Header from "./Header";
 import Gallery from "./Gallery";
 import ImagePage from "./ImagePage";
-import { nanoid } from "nanoid";
 import { Routes, Route, useNavigate } from "react-router-dom";
 
 function App({ bodyImages }) {
-  const [images, setImages] = useState([]);
+  const [images, setImages] = useState(() => {
+    const storeImages = JSON.parse(localStorage.getItem("imagesList"));
+    return storeImages || bodyImages;
+  });
   const [isVisible, setIsVisible] = useState(false);
   const [showConfirmPopup, setShowConfirmPopup] = useState(false);
-  const [hasMounted, setHasMounted] = useState(false);
+  // const [hasMounted, setHasMounted] = useState(false);
   const [selectedImages, setSelectedImages] = useState([]);
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!hasMounted) {
-      const storedImages = JSON.parse(localStorage.getItem("imagesList"));
-      if (storedImages) {
-        setImages(storedImages);
-      }
-      setHasMounted(true);
-    }
-  }, [hasMounted]);
-
-  useEffect(() => {
-    if (hasMounted) {
-      const storedImages = JSON.parse(localStorage.getItem("imagesList"));
-      if (!storedImages) {
-        localStorage.setItem("imagesList", JSON.stringify(bodyImages));
-      } else {
-        localStorage.setItem("imagesList", JSON.stringify(images));
-      }
-    }
-  }, [images, hasMounted, bodyImages]);
+    localStorage.setItem("imagesList", JSON.stringify(images));
+  }, [images]);
 
   const handleFileChange = (event) => {
     if (event.target.files[0]) {
