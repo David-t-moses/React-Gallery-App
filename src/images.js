@@ -47,7 +47,7 @@ const catImages = [
 
 const bodyImages = [
   {
-    id: 5,
+    id: 1,
     src: `${process.env.PUBLIC_URL}/img/img-5.jpg`,
     alt: "image-5",
     title: "image-5",
@@ -57,7 +57,7 @@ const bodyImages = [
     checked: false,
   },
   {
-    id: 6,
+    id: 2,
     src: `${process.env.PUBLIC_URL}/img/img-6.jpg`,
     alt: "image-6",
     title: "image-6",
@@ -67,7 +67,7 @@ const bodyImages = [
     checked: false,
   },
   {
-    id: 7,
+    id: 3,
     src: `${process.env.PUBLIC_URL}/img/img-7.jpg`,
     alt: "image-7",
     title: "image-7",
@@ -77,7 +77,7 @@ const bodyImages = [
     checked: false,
   },
   {
-    id: 8,
+    id: 4,
     src: `${process.env.PUBLIC_URL}/img/img-8.jpg`,
     alt: "image-8",
     title: "image-8",
@@ -87,7 +87,7 @@ const bodyImages = [
     checked: false,
   },
   {
-    id: 9,
+    id: 5,
     src: `${process.env.PUBLIC_URL}/img/img-9.jpg`,
     alt: "image-9",
     title: "image-9",
@@ -97,7 +97,7 @@ const bodyImages = [
     checked: false,
   },
   {
-    id: 10,
+    id: 6,
     src: `${process.env.PUBLIC_URL}/img/img-10.jpg`,
     alt: "image-10",
     title: "image-10",
@@ -107,7 +107,7 @@ const bodyImages = [
     checked: false,
   },
   {
-    id: 11,
+    id: 7,
     src: `${process.env.PUBLIC_URL}/img/img-11.jpg`,
     alt: "image-11",
     title: "image-11",
@@ -117,7 +117,7 @@ const bodyImages = [
     checked: false,
   },
   {
-    id: 12,
+    id: 8,
     src: `${process.env.PUBLIC_URL}/img/img-12.jpg`,
     alt: "image-12",
     title: "image-12",
@@ -127,7 +127,7 @@ const bodyImages = [
     checked: false,
   },
   {
-    id: 13,
+    id: 9,
     src: `${process.env.PUBLIC_URL}/img/img-13.jpg`,
     alt: "image-13",
     title: "image-13",
@@ -137,7 +137,7 @@ const bodyImages = [
     checked: false,
   },
   {
-    id: 14,
+    id: 10,
     src: `${process.env.PUBLIC_URL}/img/img-14.jpg`,
     alt: "image-14",
     title: "image-14",
@@ -147,7 +147,7 @@ const bodyImages = [
     checked: false,
   },
   {
-    id: 15,
+    id: 11,
     src: `${process.env.PUBLIC_URL}/img/img-15.jpg`,
     alt: "image-15",
     title: "image-15",
@@ -157,7 +157,7 @@ const bodyImages = [
     checked: false,
   },
   {
-    id: 16,
+    id: 12,
     src: `${process.env.PUBLIC_URL}/img/img-1.jpg`,
     alt: "image-16",
     title: "image-16",
@@ -167,7 +167,7 @@ const bodyImages = [
     checked: false,
   },
   {
-    id: 17,
+    id: 13,
     src: `${process.env.PUBLIC_URL}/img/img-2.jpg`,
     alt: "image-17",
     title: "image-17",
@@ -177,7 +177,7 @@ const bodyImages = [
     checked: false,
   },
   {
-    id: 18,
+    id: 14,
     src: `${process.env.PUBLIC_URL}/img/img-3.jpg`,
     alt: "image-18",
     title: "image-18",
@@ -187,7 +187,7 @@ const bodyImages = [
     checked: false,
   },
   {
-    id: 19,
+    id: 15,
     src: `${process.env.PUBLIC_URL}/img/img-4.jpg`,
     alt: "image-19",
     title: "image-19",
@@ -197,7 +197,7 @@ const bodyImages = [
     checked: false,
   },
   {
-    id: 20,
+    id: 16,
     src: `${process.env.PUBLIC_URL}/img/img-5.jpg`,
     alt: "image-20",
     title: "image-20",
@@ -207,7 +207,7 @@ const bodyImages = [
     checked: false,
   },
   {
-    id: 21,
+    id: 17,
     src: `${process.env.PUBLIC_URL}/img/img-1.jpeg`,
     alt: "image-21",
     title: "image-21",
@@ -217,7 +217,7 @@ const bodyImages = [
     checked: false,
   },
   {
-    id: 22,
+    id: 18,
     src: `${process.env.PUBLIC_URL}/img/img-2.jpeg`,
     alt: "image-22",
     title: "image-22",
@@ -227,7 +227,7 @@ const bodyImages = [
     checked: false,
   },
   {
-    id: 23,
+    id: 19,
     src: `${process.env.PUBLIC_URL}/img/img-3.jpeg`,
     alt: "image-23",
     title: "image-23",
@@ -237,7 +237,7 @@ const bodyImages = [
     checked: false,
   },
   {
-    id: 24,
+    id: 20,
     src: `${process.env.PUBLIC_URL}/img/img-4.jpeg`,
     alt: "image-24",
     title: "image-24",
@@ -247,7 +247,7 @@ const bodyImages = [
     checked: false,
   },
   {
-    id: 25,
+    id: 21,
     src: `${process.env.PUBLIC_URL}/img/img-5.jpeg`,
     alt: "image-25",
     title: "image-25",
@@ -257,7 +257,7 @@ const bodyImages = [
     checked: false,
   },
   {
-    id: 26,
+    id: 22,
     src: `${process.env.PUBLIC_URL}/img/img-1.png`,
     alt: "image-26",
     title: "image-26",
@@ -267,7 +267,7 @@ const bodyImages = [
     checked: false,
   },
   {
-    id: 27,
+    id: 23,
     src: `${process.env.PUBLIC_URL}/img/img-2.png`,
     alt: "image-27",
     title: "image-27",
@@ -277,7 +277,7 @@ const bodyImages = [
     checked: false,
   },
   {
-    id: 28,
+    id: 24,
     src: `${process.env.PUBLIC_URL}/img/img-1.webp`,
     alt: "image-28",
     title: "image-28",

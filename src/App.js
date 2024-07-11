@@ -12,7 +12,7 @@ function App({ bodyImages }) {
   });
   const [isVisible, setIsVisible] = useState(false);
   const [showConfirmPopup, setShowConfirmPopup] = useState(false);
-  // const [hasMounted, setHasMounted] = useState(false);
+  const [allImagesId, setAllImagesId] = useState([]);
   const [selectedImages, setSelectedImages] = useState([]);
 
   const navigate = useNavigate();
@@ -41,6 +41,11 @@ function App({ bodyImages }) {
     }
   };
 
+  useEffect(() => {
+    const handleGetAllImagesId = images.map((image) => image.id);
+    setAllImagesId(handleGetAllImagesId);
+  }, [images]);
+
   const selectedFalse = () => {
     const mappedChecked = images.map((image) =>
       images.length ? { ...image, checked: false } : image
@@ -61,18 +66,39 @@ function App({ bodyImages }) {
     }
   };
 
+  // const handleDelete = () => {
+  //   if (selectedImages.length === 0) return;
+  //   const filteredImg = images.filter(
+  //     (image) => !selectedImages.includes(image.id)
+  //   );
+
+  //   setImages(filteredImg);
+  //   setSelectedImages([]);
+  //   setShowConfirmPopup(isVisible);
+  // };
+
   const handleDelete = () => {
     if (selectedImages.length === 0) return;
-    const filteredImg = images.filter(
+
+    // Create a new array with the remaining images
+    const filteredImages = images.filter(
       (image) => !selectedImages.includes(image.id)
     );
-    setImages(filteredImg);
+
+    // Rename the IDs of the remaining images
+    const updatedImages = filteredImages.map((image, index) => ({
+      ...image,
+      id: index + 1,
+    }));
+
+    setImages(updatedImages);
     setSelectedImages([]);
     setShowConfirmPopup(isVisible);
   };
 
   const handleShowComponent = () => {
     setShowConfirmPopup(!isVisible);
+    console.log(allImagesId);
   };
 
   return (
@@ -108,7 +134,13 @@ function App({ bodyImages }) {
 
         <Route
           path="/image/:id"
-          element={<ImagePage images={images} selectedFalse={selectedFalse} />}
+          element={
+            <ImagePage
+              images={images}
+              selectedFalse={selectedFalse}
+              allImagesId={allImagesId}
+            />
+          }
         />
       </Routes>
     </div>

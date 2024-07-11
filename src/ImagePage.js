@@ -1,25 +1,28 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { Image } from "react-bootstrap";
 
-const ImagePage = ({ images, selectedFalse }) => {
+const ImagePage = ({ images, selectedFalse, allImagesId }) => {
   const { id } = useParams();
   const navigate = useNavigate();
+
   const image = images.find((image) => image.id.toString() === id);
 
+  const isIdValid = allImagesId.includes(parseInt(id));
+
   const handleSwipeRight = () => {
-    const numId = Number(id);
-    if (numId <= images.length) {
-      const num = Number(id);
-      const nextId = num + 1;
+    const numId = parseInt(id);
+    if (numId < images.length) {
+      const nextId = numId + 1;
       navigate(`/image/${nextId}`);
     }
   };
 
+  console.log(images.length);
+
   const handleSwipeLeft = () => {
-    const numId = Number(id);
-    if (numId > 5) {
-      const num = Number(id);
-      const nextId = num - 1;
+    const numId = parseInt(id);
+    if (numId > 1 && isIdValid) {
+      const nextId = numId - 1;
       navigate(`/image/${nextId}`);
     }
   };

@@ -1,6 +1,5 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
 import { Form, Image } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const BodyImages = ({
@@ -9,24 +8,42 @@ const BodyImages = ({
   handleSelectImage,
   selectedImages,
 }) => {
-  const clickTimeoutRef = useRef(null);
+  const [clickTimeout, setClickTimeout] = useState(null);
+
+  const handleImageRoute = (id) => {
+    if (selectedImages.length) return;
+    navigate(`/image/${id}`);
+  };
+
+  const handleClick = (id) => {
+    if (clickTimeout) {
+      clearTimeout(clickTimeout);
+      setClickTimeout(null);
+    } else {
+      const timeout = setTimeout(() => {
+        handleImageRoute(id);
+        setClickTimeout(null);
+      }, 300);
+      setClickTimeout(timeout);
+    }
+  };
+
+  const handleDoubleClick = (id) => {
+    if (clickTimeout) {
+      clearTimeout(clickTimeout);
+      setClickTimeout(null);
+    }
+    handleSelectImage(id);
+    handleCheck(id);
+  };
+
   const navigate = useNavigate();
+
   const handleCheck = (id) => {
     const mappedImg = images.map((image) =>
       image.id === id ? { ...image, checked: !image.checked } : image
     );
     setImages(mappedImg);
-  };
-
-  const handleImageRoute = (id) => {
-    if (selectedImages.length) return;
-    clickTimeoutRef.current = setTimeout(() => {
-      navigate(`/image/${id}`);
-    }, 1000);
-  };
-
-  const handleImageClick = (image, index) => {
-    navigate(`/image`, { state: { images, currentIndex: index } });
   };
 
   return (
@@ -55,25 +72,22 @@ const BodyImages = ({
               className="checkbox"
             />
           )}
-          <Link to={`/image/${image.id}`}>
-            <Image
-              src={image.src}
-              alt={image.alt}
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                border: "none",
-                opacity: selectedImages.length ? "70%" : "100%",
-              }}
-              className="individual-images"
-              // onClick={() => {
-              //   handleSelectImage(image.id);
-              //   handleCheck(image.id);
-              // }}
-              onMouseDown={() => handleImageRoute(image.id)}
-            />
-          </Link>
+          <Image
+            src={image.src}
+            alt={image.alt}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              border: "none",
+              opacity: selectedImages.length ? "70%" : "100%",
+            }}
+            className="individual-images"
+            onDoubleClick={() => {
+              handleDoubleClick(image.id);
+            }}
+            onClick={() => handleClick(image.id)}
+          />
         </div>
       ))}
     </>

@@ -6,7 +6,6 @@ const Header = ({
   isVisible,
   handleFileChange,
   selectedImages,
-  handleDelete,
   selectedFalse,
   setIsVisible,
   handleShowComponent,
@@ -56,8 +55,8 @@ const Header = ({
             <Image
               src={`${process.env.PUBLIC_URL}/img/gallery-icon-1.png`}
               alt="gallery-icon"
-              height={40}
-              width={40}
+              height={50}
+              width={50}
             />
           </span>
           <div className="display-5 text-white fs-1">Gallery</div>
